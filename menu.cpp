@@ -1,20 +1,21 @@
 #include "menu.h"
 
-void inmenu(std::vector<std::string> &menu,int choice)
+
+void inmenu(vector<string> &menu,int choice)
 {
     system("cls");
     for (int i = 0; i < menu.size() ;i++)
     {
         if (choice == i)
         {
-            std::cout << xanh << menu[i] << reset << std::endl;
+            cout << xanh << menu[i] << reset << endl;
         }
         else 
-        std::cout << menu[i] << std::endl;
+        cout << menu[i] << endl;
     }
 }
 
-int getchoice(std::vector<std::string>&menu)
+int getchoice(vector<string>&menu)
 {
     int select = 0;
     int key;

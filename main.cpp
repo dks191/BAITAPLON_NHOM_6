@@ -1,8 +1,9 @@
 #include "menu.h"
+using namespace std;
 
 int main()
 {
-    std::vector<std::string> menu=
+    vector<string> menu=
     {
         "1. Them san pham",
         "2. Tim san pham",
@@ -15,14 +16,13 @@ int main()
         switch(getchoice(menu))
         {
             case 1:
-                std::cout << 1;
+                cout << 1;
                 break;
             case 2:
-            std::cout << 2;
-            break;
+                cout << 2;
+                break;
             default: 
             break;
-            
         }
     }
 }
