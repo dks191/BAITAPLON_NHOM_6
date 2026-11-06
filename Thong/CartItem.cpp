@@ -6,7 +6,7 @@ CartItem::CartItem(Product *sanpham,int soluong)
     this->soluong = soluong;
 }
 
-double CartItem:: gettamtinh()
+double CartItem:: gettamtinh() const
 {
     return sanpham->getGia()*soluong;
 }
