@@ -19,8 +19,8 @@ public:
     void setsizegiay(int sizegiay);
     void setloaigiay(const string& loaigiay);
 
-    string gettheloai() const override;
-    void xuatthongtin(ostream& o) const override;
-    void nhapthongtin(istream& i) override;
-    double getgiacuoi() const override;
+    string getTheloai() const override;
+    void XuatThongTin(ostream& o) const override;
+    void NhapThongTin(istream& i) override;
+    double getGiaCuoi() const override;
 };
