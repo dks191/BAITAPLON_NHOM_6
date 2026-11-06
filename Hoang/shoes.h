@@ -9,8 +9,8 @@ private:
 
 public:
     Shoes();
-    Shoes(const string& ma, const string& ten, const string& thuonghieu,
-          const string& mausac, const string& kichco, double gia, int soluong,
+    Shoes(const string& maSP, const string& tenSP, const string& ThuongHieu,
+          const string& mauSac, const string& Size, double gia, int soLuong,
           int sizegiay, const string& loaigiay);
     ~Shoes();
 
