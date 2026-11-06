@@ -1,5 +1,6 @@
-#include <iostream>
-int main()
+#include <accessory.h>
+
+string Accessory::getloaiphukien() const
 {
-    std::cout << 1;
+    return loaiphukien;
 }
