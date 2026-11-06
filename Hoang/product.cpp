@@ -69,13 +69,13 @@ istream& operator>>(istream& in, Product& p)
 
 ostream& operator<<(ostream& out, const Product& p)
 {
- out << p.maSP << endl;
- out << p.tenSP << endl;
- out << p.ThuongHieu << endl;
- out << p.mauSac << endl;
- out << p.Size << endl;
- out << p.gia << endl;
- out << p.soLuong << endl;
+ out << "Ma san pham: " << p.maSP << endl;
+ out << "Ten san pham: " << p.tenSP << endl;
+ out << "Ten thuong hieu: " << p.ThuongHieu << endl;
+ out << "Mau sac san pham: " << p.mauSac << endl;
+ out << "Kich co san pham: " <<  p.Size << endl;
+ out << "Gia san pham: " << p.gia << endl;
+ out << "So luong san pham: " << p.soLuong << endl;
  p.XuatThongTin(out);
  return out;
 }
