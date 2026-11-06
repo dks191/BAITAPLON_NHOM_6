@@ -22,16 +22,24 @@ Product::Product(string maSP,string tenSP,string ThuongHieu,string mauSac,string
   this -> soLuong = soLuong;
 }
 
-ostream& operator<<(ostream& out, const Product& p)
+double Product::getGia() const
 {
- out << p.maSP;
- out << p.tenSP;
- out << p.ThuongHieu;
- out << p.mauSac;
- out << p.Size;
- out << p.gia;
- out << p.soLuong;
- return out;
+ return gia; 
+}
+
+double Product::getGiaCuoi() const
+{
+  return gia;
+}
+
+bool Product::operator==(const Product& other) const
+{
+  return maSP == other.maSP;
+}
+
+bool Product::operator<(const Product& other) const
+{
+  return gia < other.gia;
 }
 
 istream& operator>>(istream& in, Product& p)
@@ -41,18 +49,33 @@ istream& operator>>(istream& in, Product& p)
   getline(in,p.ThuongHieu);
   getline(in,p.mauSac);
   getline(in,p.Size);
-  in >> p.gia;
-  in >> p.soLuong;
+  
+  while(true)
+  {
+    in >> p.gia;
+    in >> p.soLuong;
+    if(p.gia > 0 && p.soLuong >= 0){
+      break;
+    }
+    else {
+      continue;
+    }
+  }
+
   in.ignore();
   return in;
 }
 
-double Product::getGia() const
+ostream& operator<<(ostream& out, const Product& p)
 {
- return gia; 
+ out << p.maSP << endl;
+ out << p.tenSP << endl;
+ out << p.ThuongHieu << endl;
+ out << p.mauSac << endl;
+ out << p.Size << endl;
+ out << p.gia << endl;
+ out << p.soLuong << endl;
+ p.XuatThongTin(out);
+ return out;
 }
 
-bool Product::operator==(const Product& other) const
-{
-  return maSP == other.maSP;
-}
