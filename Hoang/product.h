@@ -11,13 +11,14 @@ class Product
      string maSP;
      string tenSP;
      string ThuongHieu;
+     string mauSac;
      string Size;
      double gia;
      int soLuong;
     public:
 
     Product();
-    Product(string maSP, string tenSP, string ThuongHieu, string Size, double gia, int soLuong);
+    Product(string maSP, string tenSP, string ThuongHieu,string mauSac, string Size, double gia, int soLuong);
 
      virtual string getTheloai() const = 0;
      virtual void XuatThongTin() const = 0;
