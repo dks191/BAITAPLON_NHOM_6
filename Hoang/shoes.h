@@ -1,5 +1,5 @@
 #pragma once
-#include "Product.h"
+#include "product.h"
 
 class Shoes : public Product
 {
