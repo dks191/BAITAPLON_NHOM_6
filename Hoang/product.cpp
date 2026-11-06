@@ -63,6 +63,7 @@ istream& operator>>(istream& in, Product& p)
   }
 
   in.ignore();
+  p.NhapThongTin(in);
   return in;
 }
 
