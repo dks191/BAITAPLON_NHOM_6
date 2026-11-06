@@ -21,6 +21,7 @@ class Product
     Product(string maSP, string tenSP, string ThuongHieu,string mauSac, string Size, double gia, int soLuong);
 
      virtual string getTheloai() const = 0;
+     virtual void NhapThongTin(istream& in) const = 0;
      virtual void XuatThongTin(ostream& out) const = 0;
      virtual double getGiaCuoi() const ;
 
