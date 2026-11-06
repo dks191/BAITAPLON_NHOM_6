@@ -10,8 +10,8 @@ private:
 
 public:
     Clothes();
-    Clothes(const string& ma, const string& ten, const string& thuonghieu,
-            const string& mausac, const string& kichco, double gia, int soluong,
+    Clothes(const string& maSP, const string& tenSP, const string& ThuongHieu,
+            const string& mauSac, const string& Size, double gia, int soLuong,
             const string& chatlieu, const string& kieudang, const string& gioitinh);
     ~Clothes();
 
