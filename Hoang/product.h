@@ -15,6 +15,10 @@ class Product
      double gia;
      int soLuong;
     public:
+
+    Product();
+    Product(string maSP, string tenSP, string ThuongHieu, string Szie, double gia, int soLuong);
+    
      virtual string getTheloai() const = 0;
      virtual void XuatThongTin() const = 0;
 
