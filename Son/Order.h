@@ -1,38 +1,52 @@
-#pragma once
+#ifndef ORDER_H
+#define ORDER_H
+
+#include <iostream>
+#include <string>
 #include <vector>
-#include "Customer.h"
-#include "Voucher.h"
-#include "CartItem.h"
-#include "Date.h"
 
-class Order
-{
+#include "CartItem.h"  // Order o-- "1..*" CartItem (chứa theo giá trị)
+#include "Date.h"      // Order *-- "1" Date (composition)
+
+// Order --> "1" Customer, Order --> "0..1" Voucher: chỉ giữ con trỏ => forward declaration
+class Customer;
+class Voucher;
+
+class Order {
 private:
-    string ma;
-    Customer* khachhang;           // chi tro toi, khong delete
-    vector<CartItem> dssanpham;
-    Voucher* voucher;              // co the nullptr neu khong dung voucher
+    std::string ma;
+    Customer* khachhang;                 // không sở hữu
+    std::vector<CartItem> dssanpham;
+    Voucher* voucher;                    // không sở hữu, nullptr nếu không dùng voucher
     Date ngay;
-    string trangthai;              // Moi, DaThanhToan, DaGiao, Huy
-
-    bool ischuyenhople(const string& ttmoi) const;
+    std::string trangthai;
 
 public:
+    // ===== Constructor =====
     Order();
-    Order(const string& ma, Customer* khachhang,
-          const vector<CartItem>& dssanpham, const Date& ngay);
+    Order(std::string ma,
+          Customer* khachhang,
+          const std::vector<CartItem>& dssanpham,
+          const Date& ngay);
 
-    string getma() const;
+    // ===== Getter =====
+    std::string getma() const;
     Customer* getkhachhang() const;
-    const vector<CartItem>& getdanhsach() const;
+    const std::vector<CartItem>& getdanhsach() const;
     Voucher* getvoucher() const;
     Date getngay() const;
-    string gettrangthai() const;
+    std::string gettrangthai() const;
 
+    // ===== Setter =====
     void setvoucher(Voucher* voucher);
+    bool settrangthai(const std::string& ttmoi);   // false nếu chuyển trạng thái không hợp lệ
 
-    double tinhtongtien() const;                     // tong cac dong, sau do ap voucher
-    bool settrangthai(const string& ttmoi);          // false neu chuyen khong hop le
+    // ===== Nghiệp vụ =====
+    double tinhtongtien() const;                          // tổng tiền sau khi áp voucher (nếu có)
+    bool ischuyenhople(const std::string& ttmoi) const;   // kiểm tra trạng thái mới có hợp lệ không
 
-    friend ostream& operator<<(ostream& o, const Order& od);
+    // ===== Xuất thông tin =====
+    friend std::ostream& operator<<(std::ostream& o, const Order& od);
 };
+
+#endif // ORDER_H
