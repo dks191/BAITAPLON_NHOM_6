@@ -17,8 +17,8 @@ class Product
     public:
 
     Product();
-    Product(string maSP, string tenSP, string ThuongHieu, string Szie, double gia, int soLuong);
-    
+    Product(string maSP, string tenSP, string ThuongHieu, string Size, double gia, int soLuong);
+
      virtual string getTheloai() const = 0;
      virtual void XuatThongTin() const = 0;
 
