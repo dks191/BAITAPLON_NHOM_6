@@ -62,20 +62,6 @@ void Clothes::NhapThongTin(istream& i)
     getline(i,kieudang);
     getline(i,gioitinh);
 
-    if(Size != "S" &&
-       Size != "M" &&
-       Size != "L" &&
-       Size != "XL" &&
-       Size != "2XL" &&
-       Size != "3XL" )
-       {
-        throw invalid_argument("Shop khong co size nay!");
-       }
-
-    if(gioitinh != "Nam" && gioitinh != "Nu"){
-        throw invalid_argument("San pham khong co!");
-    }   
-
 }
 
 

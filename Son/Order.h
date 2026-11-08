@@ -8,19 +8,19 @@
 class Order
 {
 private:
-    string ma;
-    Customer* khachhang;           // chi tro toi, khong delete
+    string ma="";
+    Customer* khachhang ;           // chi tro toi, khong delete
     vector<CartItem> dssanpham;
     Voucher* voucher;              // co the nullptr neu khong dung voucher
     Date ngay;
-    string trangthai;              // Moi, DaThanhToan, DaGiao, Huy
+    string trangthai ="";              // Moi, DaThanhToan, DaGiao, Huy
 
     bool ischuyenhople(const string& ttmoi) const;
 
 public:
     Order();
-    Order(const string& ma, Customer* khachhang,
-          const vector<CartItem>& dssanpham, const Date& ngay);
+    Order(const string ma, Customer* khachhang,
+          const vector<CartItem> dssanpham, const Date ngay);
 
     string getma() const;
     Customer* getkhachhang() const;
