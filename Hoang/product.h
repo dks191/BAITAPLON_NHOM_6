@@ -3,7 +3,7 @@
 
 #include <iostream>
 #include <string>
-#include <stdexcept> 
+#include <stdexcept>
 using namespace std;
 
 class Product

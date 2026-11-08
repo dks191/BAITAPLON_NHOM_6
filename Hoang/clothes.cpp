@@ -18,6 +18,7 @@ Clothes::Clothes(const string& maSP, const string& tenSP, const string& ThuongHi
             }
 Clothes::~Clothes() = default;
 
+
 string Clothes::getchatlieu() const
 {
     return chatlieu;
