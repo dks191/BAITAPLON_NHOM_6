@@ -15,6 +15,8 @@ public:
             const string& chatlieu, const string& kieudang, const string& gioitinh);
     ~Clothes();
 
+    bool checkngoaile(string i);
+    
     string getchatlieu() const;
     string getkieudang() const;
     string getgioitinh() const;

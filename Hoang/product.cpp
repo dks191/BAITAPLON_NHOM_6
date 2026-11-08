@@ -49,17 +49,15 @@ istream& operator>>(istream& in, Product& p)
   getline(in,p.ThuongHieu);
   getline(in,p.mauSac);
   getline(in,p.Size);
-  
-  while(true)
-  {
-    in >> p.gia;
-    in >> p.soLuong;
-    if(p.gia > 0 && p.soLuong >= 0){
-      break;
-    }
-    else {
-      continue;
-    }
+  in >> p.gia;
+  in >> p.soLuong;
+
+  if(p.gia <= 0){
+    throw invalid_argument("Gia phai lon hon 0");
+  }
+
+  if(p.soLuong < 0){
+    throw invalid_argument("So luong khong duoc am");
   }
 
   in.ignore();

@@ -18,6 +18,7 @@ Clothes::Clothes(const string& maSP, const string& tenSP, const string& ThuongHi
             }
 Clothes::~Clothes() = default;
 
+
 string Clothes::getchatlieu() const
 {
     return chatlieu;
@@ -60,7 +61,23 @@ void Clothes::NhapThongTin(istream& i)
     getline(i,chatlieu);
     getline(i,kieudang);
     getline(i,gioitinh);
+
+    if(Size != "S" &&
+       Size != "M" &&
+       Size != "L" &&
+       Size != "XL" &&
+       Size != "2XL" &&
+       Size != "3XL" )
+       {
+        throw invalid_argument("Shop khong co size nay!");
+       }
+
+    if(gioitinh != "Nam" && gioitinh != "Nu"){
+        throw invalid_argument("San pham khong co!");
+    }   
+
 }
+
 
 void Clothes::XuatThongTin(ostream& o) const
 {
