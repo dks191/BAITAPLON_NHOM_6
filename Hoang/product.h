@@ -26,6 +26,7 @@ class Product
      virtual double getGiaCuoi() const ;
 
      double getGia() const;
+     bool KiemTraThongTin() const;
      bool operator==(const Product& other) const;
      bool operator<(const Product& other) const;
 
