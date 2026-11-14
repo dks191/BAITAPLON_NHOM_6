@@ -49,7 +49,7 @@ void Clothes::setgioitinh(const string& gioitinh)
     this -> gioitinh = gioitinh;
 }
 
-string Clothes::getTheloai() const
+string Clothes::getTheloai() const 
 {
     return "Quan ao";
 }
