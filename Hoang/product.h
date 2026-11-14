@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <string>
+#include <stdexcept>
 using namespace std;
 
 class Product
@@ -39,6 +40,15 @@ class Product
      double getGia() const;
      bool operator==(const Product& other) const;
 friend istream& operator>>(istream& in, Product& p);
+     virtual void NhapThongTin(istream& in) = 0;
+     virtual void XuatThongTin(ostream& out) const = 0;
+     virtual double getGiaCuoi() const ;
+
+     double getGia() const;
+     bool operator==(const Product& other) const;
+     bool operator<(const Product& other) const;
+
+     friend istream& operator>>(istream& in, Product& p);
      friend ostream& operator<<(ostream& out, const Product& p);
      
 

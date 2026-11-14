@@ -1,5 +1,7 @@
 #pragma once
 #include <iostream>
+#include <stdexcept>
+#include <iomanip>
 using namespace std;
 
 class Date
@@ -8,22 +10,16 @@ private:
     int ngay, thang, nam;
 
 public:
-    Date();
-    Date(int ngay, int thang, int nam);
+    Date();//done
+    Date(int ngay, int thang, int nam);//done
 
-    int getngay() const;
-    int getthang() const;
-    int getnam() const;
+    void setnew(int ngay,int thang, int nam);//done
 
-    void setngay(int ngay);
-    void setthang(int thang);
-    void setnam(int nam);
+    bool hople(int ngay, int thang, int nam) const;//done               // kiem tra ngay thang nam co hop le khong
 
-    bool hople() const;                    // kiem tra ngay thang nam co hop le khong
+    bool operator==(const Date& other) const;//done
+    bool operator<(const Date& other) const;//done
 
-    bool operator==(const Date& d) const;
-    bool operator<(const Date& d) const;
-
-    friend ostream& operator<<(ostream& o, const Date& d);
+    friend ostream& operator<<(ostream& o, const Date& date);//done
     friend istream& operator>>(istream& i, Date& d);   // chap nhan ca d/m/y va d m y
 };

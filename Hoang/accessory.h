@@ -1,16 +1,15 @@
 #pragma once
-#include "Product.h"
+#include "product.h"
 
 class Accessory : public Product
 {
 private:
     string loaiphukien;
     string chatlieu;
-
 public:
     Accessory();
-    Accessory(const string& ma, const string& ten, const string& thuonghieu,
-              const string& mausac, const string& kichco, double gia, int soluong,
+    Accessory(const string& maSP, const string& tenSP, const string& ThuongHieu,
+              const string& mauSac, const string& Size, double gia, int soLuong,
               const string& loaiphukien, const string& chatlieu);
     ~Accessory();
 
@@ -19,8 +18,8 @@ public:
     void setloaiphukien(const string& loaiphukien);
     void setchatlieu(const string& chatlieu);
 
-    string gettheloai() const override;
-    void xuatthongtin(ostream& o) const override;
-    void nhapthongtin(istream& i) override;
-    double getgiacuoi() const override;
+    string getTheloai() const override;
+    void XuatThongTin(ostream& o) const override;
+    void NhapThongTin(istream& i) override;
+    double getGiaCuoi() const override;
 };

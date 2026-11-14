@@ -1,5 +1,5 @@
 #pragma once
-#include "Product.h"
+#include "product.h"
 
 class Clothes : public Product
 {
@@ -10,11 +10,13 @@ private:
 
 public:
     Clothes();
-    Clothes(const string& ma, const string& ten, const string& thuonghieu,
-            const string& mausac, const string& kichco, double gia, int soluong,
+    Clothes(const string& maSP, const string& tenSP, const string& ThuongHieu,
+            const string& mauSac, const string& Size, double gia, int soLuong,
             const string& chatlieu, const string& kieudang, const string& gioitinh);
     ~Clothes();
 
+    bool checkngoaile(string i);
+    
     string getchatlieu() const;
     string getkieudang() const;
     string getgioitinh() const;
@@ -22,8 +24,8 @@ public:
     void setkieudang(const string& kieudang);
     void setgioitinh(const string& gioitinh);
 
-    string gettheloai() const override;
-    void xuatthongtin(ostream& o) const override;
-    void nhapthongtin(istream& i) override;
-    double getgiacuoi() const override;
+    string getTheloai() const override;
+    void XuatThongTin(ostream& o) const override;
+    void NhapThongTin(istream& i) override;
+    double getGiaCuoi() const override;
 };
