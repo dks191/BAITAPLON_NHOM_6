@@ -1,18 +1,73 @@
+#include"OnlineStore.h"
+#include"clothes.h"
+#include"shoes.h"
+#include"accessory.h"
 #include<iostream>
-using namespace std;
-class PRODUCT{
-    private:
-    string name;
-    double prices;
-    public:
-    PRODUCT( string ten = " ", double gia = 0): name(ten), prices(gia){}
-    void In() const{
-        cout << "TEN SAN PHAM: " << name << endl;
-        cout << "GIA SAN PHAM: " << prices << endl;
+OnlineStore::OnlineStore(){}
+OnlineStore::~OnlineStore(){
+    for(Product* p: this->dssanpham){
+        delete p;
     }
-};
-int main(){
-    PRODUCT a("DOAN CONG TRIET", 50);
-    a.In();
-    return 0;   
+}
+bool OnlineStore::themsanpham(){
+    int chon;
+    Product* p = nullptr;
+    cout << "1. Quan ao" << endl;
+    cout << "2. Giay dep" << endl;
+    cout << "3. Phu kien" << endl;
+    cout << "Chon loai san pham: ";
+    if(!(cin>>chon)){
+        return false;
+    }
+    if(chon==1){
+        p = new Clothes();
+    }
+    else if(chon==2){
+        p = new Shoes();
+    }
+    else if(chon==3){
+        p = new Accessory();
+    }
+    else{
+        cout << "Loai khong hop le!" << endl;
+        return false;
+    }
+    p->nhapthongtin(cin>>ws);
+    if (!cin){
+        delete p;
+        return false;
+    }
+    for (Product* sp : this->dssanpham){
+        if (*sp==*p){
+            cout << "Ma san pham da ton tai!" << endl;
+            delete p;
+            return false;
+        }
+    }
+    this->dssanpham.push_back(p);
+    cout << "Them san pham thanh cong!" << endl;
+    return true;
+}
+Product* OnlineStore::timsanphamtheoma(const string& ma) const{
+    for (Product* p : this->dssanpham){
+        if (p->getMaSp()==ma){
+            return p;
+        }
+    }
+    return nullptr;
+}
+bool OnlineStore::suasanpham(const string& ma){
+    Product* p = timsanphamtheoma(ma);
+    if (p==nullptr){
+        cout << "Khong tim thay san pham!" << endl;
+        return false;
+    }
+        cout << "Nhap thong tin moi:" << endl;
+        bool kq = p->SuaThongTin(cin);
+        if (kq==false){
+            cout << "Sua thong tin that bai!" << endl;
+            return false;
+        }
+        cout << "Sua thong tin thanh cong!" << endl;
+        return true;
 }
