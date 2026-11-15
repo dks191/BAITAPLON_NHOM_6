@@ -1,8 +1,9 @@
-#include "product.h"
+#include "../Hoang/product.h"
 
 int main()
 {
     Product p;
-    p.NhapThongTin(cin);
-
+    cin >> p;
+    cout <<endl<<endl;
+    cout << p;
 }

@@ -4,7 +4,7 @@
 #include <iostream>
 #include <string>
 #include <stdexcept>
-#include <limits>
+#include <sstream>
 using namespace std;
 
 class Product
@@ -24,15 +24,16 @@ class Product
 
      string getmaSP() const;//done
      double getGia() const;//done
-     virtual double getGiaCuoi() const;
-     virtual string getTheloai() const;
+    //  virtual double getGiaCuoi() const;
+    //  virtual string getTheloai() const;
 
-     virtual void NhapThongTin(istream& in);
-     virtual void XuatThongTin(ostream& out);
+     virtual void NhapThongTin(istream& in);//done
+     virtual void XuatThongTin(ostream& out) const;//done
      
      bool operator==(const Product& other) const;//done
      bool operator<(const Product& other) const;//done
      friend ostream& operator<<(ostream& out, const Product& p);//done
+     friend istream& operator>>(istream& in, Product& p);
      
 
      virtual ~Product() = default;
